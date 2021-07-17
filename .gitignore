@@ -1,0 +1,3 @@
+env/*
+.vscode/ 
+mem_py/mem_py/__pycache__/*
