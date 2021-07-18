@@ -1,0 +1,18 @@
+:root{
+    font-family:arial;
+}
+
+h1 {
+    size:50px;
+    text-align: center;
+    font-weight: bold;
+}
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+input {
+    margin:10px;
+    padding:10px;
+}

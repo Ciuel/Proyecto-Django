@@ -1,0 +1,12 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block stylsheet %}
+    <link href={% static 'login.css' %} rel='stylesheet'>
+{% endblock stylsheet %}
+
+{% block body %}
+    <h1 id="Title">Registro</h1>
+    {{ form_register }}
+
+{% endblock body %}

@@ -1,0 +1,18 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block stylsheet %}
+    <link href={% static 'login.css' %} rel='stylesheet'>
+{% endblock stylsheet %}
+{% block body %}
+    <h1 id="Title">MEMPY</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form_login }}
+        <input type='submit' value='Iniciar sesion' id='login_button'>
+        {% if usernotfound %}
+        <h3 style="color:red"> El Usuario no existe </h3>
+        {% endif %}
+    </form>
+
+{% endblock body %}
