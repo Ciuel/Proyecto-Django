@@ -1,13 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href={% static 'menu.css' %} rel='stylesheet'>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Mempy</title>
 </head>
 <body>
-    <h1 id="menu">Menu</h1>
-    <h2> Hola, {{ request.user|capfirst }}  <a href={% url 'menu:logout' %}>Cerrar Sesion </a></h2>
+    <nav>
+        <h1 id="menu">Mempy</h1>
+        <h2 id="welcome"> Hola, {{ request.user|capfirst }}  <a href={% url 'menu:logout' %}>Cerrar Sesion </a></h2>
+    </nav>
+    <div class="container">
+        <div id='container-score'>
+        <h4 id="score-banner">Score</h4>
+        </div>
+        <div id='container-game'>
+        <h4 id="game-banner">Play!</h4>
+        </div>
+        <div id='container-config'>
+        <h4 id="config-banner">Configuration</h4>
+        </div>
+    </div>
 </body>
 </html>
