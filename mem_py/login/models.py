@@ -1,20 +1,13 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
-class Config(models.Model):
-    color=models.CharField(max_length=10)
-    level=models.SmallIntegerField()
-    token=models.CharField(max_length=3)
+class UserProfile(User):
+    level=models.SmallIntegerField(default=1)
+    coincidences=models.SmallIntegerField(default=2)
+    token=models.CharField(default='img',max_length=3)
+    victory_text=models.CharField(default="Ganaste!",max_length=100)
+    defeat_text=models.CharField(default="Perdiste!",max_length=100)
 
-    def __str__(self):
-        return f'Color: {self.color}, nivel: {self.level}, token: {self.token} '
 
-class User(models.Model):
-    nick=models.CharField(max_length=25,unique=True)
-    password=models.CharField(max_length=16)
-    age=models.PositiveSmallIntegerField(blank=True)
-    config=models.OneToOneField(Config,on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.nick

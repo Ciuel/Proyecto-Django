@@ -6,7 +6,13 @@
 {% endblock stylsheet %}
 
 {% block body %}
-    <h1 id="Title">Registro</h1>
-    {{ form_register }}
+    {% csrf_token %}
+    <div class="container">
+        <h1 id="Title">Registro</h1>
+        <form action="" method="POST">
+            {{ form_register }}
+        </form>
+        <input type='submit' value='Registrarse' id='regis_button'>
+    </div>
 
 {% endblock body %}

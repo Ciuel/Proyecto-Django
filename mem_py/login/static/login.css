@@ -1,18 +1,48 @@
 :root{
     font-family:arial;
+    background: #f0f2f5;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    width:300px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 h1 {
     size:50px;
     text-align: center;
-    font-weight: bold;
 }
-form {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+#infoBanner{
+    align-self: center;
 }
-input {
+#registerBanner{
+    margin-left: 10%;
+}
+input{
     margin:10px;
     padding:10px;
+    outline-width: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(204, 203, 203, 0.657);
+}
+
+
+#login_button:hover{
+    background-color: rgb(27, 99, 167);
 }

@@ -1,23 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import LoginForm
-from .models import User
+from django.contrib.auth import authenticate,login
+from .forms import RegisterForm,LoginForm
 
 # Create your views here.
 
-def login(request):
-    login_form=LoginForm(request.POST or None)
-    if login_form.is_valid():
-        info=login_form.cleaned_data
-        try:
-            user=User.objects.get(nick=info["nickname"],password=info["password"])
-            #HttpResponseRedirect('') Redireccion a la pagina inicial
-        except:
-            return render(request,'login/login.html',{"form_login":login_form,"usernotfound":True})
-        
-    return render(request,'login/login.html',{"form_login":login_form,"usernotfound":False})
+def loginPage(request):
+    form=LoginForm(request.POST or None)
+    print(form.errors)
+    if form.is_valid(): 
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get('password')
+        user= authenticate(request,username=username,password=password)
+        if user:
+            login(request, user)
+            return redirect('')
 
-def register(request):
-    return render(request,'login/register.html',{
-        "form_register":0
-    })
+    return render(request,'login/login.html',{"form":form})
+
+
+def registerPage(request):
+    register=RegisterForm(request.POST or None)
+    if register.is_valid():
+        register.save()
+        return redirect('login:login')
+    return render(request,'login/register.html',{"form_register":register})
