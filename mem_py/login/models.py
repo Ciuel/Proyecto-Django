@@ -8,6 +8,7 @@ class UserProfile(User):
     token=models.CharField(default='img',max_length=3)
     victory_text=models.CharField(default="Ganaste!",max_length=100)
     defeat_text=models.CharField(default="Perdiste!",max_length=100)
+    
 
 
 

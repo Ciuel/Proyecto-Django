@@ -1,18 +1,21 @@
 {% extends 'login/base.html' %}
-{% load static %}
-
-{% block stylsheet %}
-    <link href={% static 'login.css' %} rel='stylesheet'>
-{% endblock stylsheet %}
 
 {% block body %}
-    {% csrf_token %}
+    
     <div class="container">
-        <h1 id="Title">Registro</h1>
+        <h1 id="Title">Registrarse</h1>
         <form action="" method="POST">
-            {{ form_register }}
+            {% csrf_token %}
+             {% for field in form %}
+                    {{ field }}
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+            {% endfor %}
+            {{ form.errors  }}
+            <input type='submit' value='Registrarse' id='login_button'>
         </form>
-        <input type='submit' value='Registrarse' id='regis_button'>
+         <h5 id="registerBanner">Ya tienes cuenta? <a  href={% url 'login:login' %}>Inicia Sesion</a></h5>
     </div>
 
 {% endblock body %}

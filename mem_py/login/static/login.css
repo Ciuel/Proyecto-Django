@@ -3,6 +3,7 @@
     background: #f0f2f5;
 }
 
+
 .container{
     position: absolute;
     left: 50%;
@@ -22,16 +23,34 @@ form {
     flex-direction: column;
 }
 
-h1 {
-    size:50px;
-    text-align: center;
-}
 #infoBanner{
     align-self: center;
 }
 #registerBanner{
     margin-left: 10%;
 }
+
+#login_button{
+    background-color:rgb(56, 175, 248);
+    font-size: 20px;
+    font-weight: bold;
+    color:white
+}
+#login_button:hover{
+    background-color: rgb(27, 99, 167);
+
+}
+
+.errorlist {
+    list-style: none;
+    color:red;
+}
+
+h1 {
+    size:50px;
+    text-align: center;
+}
+
 input{
     margin:10px;
     padding:10px;
@@ -42,7 +61,7 @@ input{
     background-color: rgba(204, 203, 203, 0.657);
 }
 
-
-#login_button:hover{
-    background-color: rgb(27, 99, 167);
+input:focus{
+    background-color: rgba(158, 154, 154, 0.657);
 }
+    
